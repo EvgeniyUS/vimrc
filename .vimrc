@@ -30,6 +30,7 @@ set wrap "Wrap lines
 set laststatus=2
 set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%\ 
 set cursorline
+set hidden
 
 " Ctags
 command! MakeTags !ctags -R .
@@ -135,10 +136,9 @@ hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE
 
 """"""""MAPPING""""""""
 
-let mapleader = ","
+let mapleader = "\<space>"
 nnoremap j gj
 nnoremap k gk
-map <space> /
 map <F4> :Ex<cr>
 map <leader><F4> :Vex<cr>
 map <F5> :!python3 %<cr>
