@@ -1,4 +1,4 @@
-.vimrc
+# .vimrc
 
 pathogen:
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
