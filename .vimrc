@@ -9,6 +9,7 @@ set path+=**
 set history=500
 set autoread
 set nu
+set relativenumber
 set so=8
 set wildmenu
 set ruler
@@ -31,9 +32,10 @@ set laststatus=2
 set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%\ 
 set cursorline
 set hidden
+let netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
 
 " Ctags
-command! MakeTags !ctags -R .
+"command! MakeTags !ctags -R .
 
 " No annoying sound on errors
 set noerrorbells
@@ -112,9 +114,9 @@ hi Title ctermfg=203 ctermbg=NONE cterm=bold
 hi Todo ctermfg=95 ctermbg=NONE cterm=inverse,bold
 hi Type ctermfg=205 ctermbg=NONE cterm=NONE
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
-hi htmlTag ctermfg=148 ctermbg=NONE cterm=NONE
+hi htmlTag ctermfg=149 ctermbg=NONE cterm=NONE
 hi htmlEndTag ctermfg=148 ctermbg=NONE cterm=NONE
-hi htmlTagName ctermfg=NONE ctermbg=NONE cterm=NONE
+hi htmlTagName ctermfg=8 ctermbg=NONE cterm=bold
 hi htmlArg ctermfg=NONE ctermbg=NONE cterm=NONE
 hi htmlSpecialChar ctermfg=141 ctermbg=NONE cterm=NONE
 hi javaScriptFunction ctermfg=81 ctermbg=NONE cterm=NONE
@@ -139,20 +141,22 @@ hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE
 let mapleader = "\<space>"
 nnoremap j gj
 nnoremap k gk
+nnoremap <F2> :set norelativenumber!<CR>
+nnoremap <leader><F2> :set number!<CR>
 map <F4> :Ex<cr>
 map <leader><F4> :Vex<cr>
 map <F5> :!python3 %<cr>
+map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
+map <F8> :so ~/.vimrc<cr><leader><cr>
 map <leader><leader> :close<cr>
 nmap <leader>w :w!<cr>
 map 0 ^
 nmap <Tab> :find 
-nnoremap <F2> :set relativenumber!<CR>
-nnoremap <leader><F2> :set number!<CR>
-map <F8> :so ~/.vimrc<cr><leader><cr>
+map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 
-" Visual mode pressing <F3> searches and replace the current selection
+" <F3> searches and replace the current word/selection
 vnoremap <F3> y:%s/<C-R>"//g<left><left>
-nnoremap <F3> bvey:%s/<C-R>"//g<left><left>
+nnoremap <F3> viwy:%s/<C-R>"//g<left><left>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
