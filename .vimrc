@@ -1,12 +1,13 @@
 """"""""MAIN""""""""
 
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
+filetype on
 filetype plugin indent on
 syntax on
 set nocompatible
 set path+=**
-set history=500
+set history=300
 set autoread
 set nu
 set relativenumber
@@ -33,9 +34,11 @@ set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%\
 set cursorline
 set hidden
 let netrw_bufsettings="noma nomod nobl nowrap ro nu rnu"
+autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
+autocmd CompleteDone * pclose
 
 " Ctags
-"command! MakeTags !ctags -R .
+command! MakeTags !ctags -R .
 
 " No annoying sound on errors
 set noerrorbells
@@ -50,10 +53,6 @@ set nobackup
 set nowb
 set noswapfile
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
 
 """"""""STYLE""""""""
 
@@ -62,6 +61,7 @@ hi clear
 syntax reset
 set t_Co=256
 hi TabLine cterm=NONE
+hi Define ctermfg=68 ctermbg=NONE cterm=NONE
 hi ModeMsg ctermfg=darkblue ctermbg=green cterm=bold
 hi EndOfBuffer ctermfg=250 ctermbg=234 cterm=NONE
 hi LineNr ctermfg=darkgrey ctermbg=black cterm=NONE
@@ -84,7 +84,7 @@ hi Cursor ctermfg=235 ctermbg=231 cterm=NONE
 hi CursorLine ctermfg=NONE ctermbg=233 cterm=NONE
 hi CursorColumn ctermfg=NONE ctermbg=NONE cterm=NONE
 hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE
-hi VertSplit ctermfg=black ctermbg=234 cterm=NONE
+hi VertSplit ctermfg=233 ctermbg=233 cterm=NONE
 hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE
 hi Directory ctermfg=24 ctermbg=NONE cterm=bold
 hi Exception ctermfg=179 ctermbg=NONE cterm=bold
@@ -142,7 +142,7 @@ let mapleader = "\<space>"
 nnoremap j gj
 nnoremap k gk
 nnoremap <F2> :set norelativenumber!<CR>
-nnoremap <leader><F2> :set number!<CR>
+nnoremap <leader><F2> :set number!<CR> :set norelativenumber!<CR>
 map <F4> :Ex<cr>
 map <leader><F4> :Vex<cr>
 map <F5> :!python3 %<cr>
