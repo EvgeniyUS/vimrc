@@ -6,7 +6,8 @@ set nocompatible
 set path+=**
 set history=400
 set autoread
-set nonumber
+"set number
+set relativenumber
 set so=8
 set wildmenu
 set ruler
@@ -31,7 +32,7 @@ set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
 set cursorline
 set hidden
 set backspace=indent,eol,start
-let netrw_bufsettings="noma nomod nu nowrap ro nobl"
+let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
 let g:netrw_liststyle=1
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
 "autocmd CompleteDone * pclose
@@ -155,11 +156,11 @@ nmap <leader>w :w!<cr>
 nmap <Tab> :find 
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 
-" <F3> searches and replace the current word/selection
+" Searches and replace the current word/selection
 vnoremap <F3> y:%s/<C-R>"//g<Left><Left>
 nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
 
-" Disable highlight when <leader><cr> is pressed
+" Disable highlight
 map <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
@@ -169,12 +170,13 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>bc :Bclose<cr>
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
+map <leader>b :buffer 
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -188,7 +190,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Pressing ,ss will toggle and untoggle spell checking
+" Toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
 " Toggle paste mode on and off
