@@ -21,14 +21,15 @@ set showmatch
 set encoding=utf-8
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set autoindent
 set smartindent
 set wrap
 set whichwrap+=<,>,h,l
 set laststatus=2
-set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
+"set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
+set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
 set cursorline
 set hidden
 set backspace=indent,eol,start
@@ -147,6 +148,8 @@ nmap <F2><F2> :set number!<CR>
 map <F4> :Ex<cr>
 map <leader><F4> :Vex<cr>
 map <F5> :!python3 %<cr>
+map <F9> :!python %<cr>
+map <leader>fe :!chardet %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 map <F8> :so /etc/vim/vimrc<cr><leader><cr>
 map <F7> :colorscheme torte<CR>
