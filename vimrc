@@ -6,7 +6,7 @@ set nocompatible
 set path+=**
 set history=400
 set autoread
-"set number
+set number
 set relativenumber
 set so=8
 set wildmenu
@@ -36,7 +36,7 @@ set backspace=indent,eol,start
 let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
 let g:netrw_liststyle=1
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
-"autocmd CompleteDone * pclose
+autocmd CompleteDone * pclose
 
 " Ctags
 command! MakeTags !ctags -R .
@@ -79,8 +79,8 @@ hi ErrorMsg ctermfg=darkred ctermbg=NONE cterm=bold
 hi Exception ctermfg=179 ctermbg=NONE cterm=bold
 hi Float ctermfg=181 ctermbg=NONE cterm=NONE
 hi Folded ctermfg=242 ctermbg=235 cterm=NONE
-hi Function ctermfg=148 ctermbg=NONE cterm=NONE
-hi Identifier ctermfg=9 ctermbg=NONE cterm=NONE
+hi Function ctermfg=119 ctermbg=NONE cterm=NONE
+hi Identifier ctermfg=darkgrey ctermbg=NONE cterm=NONE
 hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE
 hi Keyword ctermfg=197 ctermbg=NONE cterm=NONE
 hi Label ctermfg=186 ctermbg=NONE cterm=NONE
