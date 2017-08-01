@@ -8,7 +8,7 @@ set history=400
 set autoread
 set number
 set relativenumber
-set so=6
+set so=8
 set wildmenu
 set ruler
 set showcmd
@@ -21,20 +21,20 @@ set showmatch
 set encoding=utf-8
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set autoindent
 set smartindent
 set wrap
 set whichwrap+=<,>,h,l
 set laststatus=2
-set statusline=\ %{HasPaste()}%f%m%r%h%w\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%\ 
+set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
 set cursorline
 set hidden
 set backspace=indent,eol,start
 let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
 let g:netrw_liststyle=1
-autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
+"autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
 autocmd CompleteDone * pclose
 
 " Ctags
@@ -78,12 +78,12 @@ hi ErrorMsg ctermfg=darkred ctermbg=NONE cterm=bold
 hi Exception ctermfg=179 ctermbg=NONE cterm=bold
 hi Float ctermfg=181 ctermbg=NONE cterm=NONE
 hi Folded ctermfg=242 ctermbg=235 cterm=NONE
-hi Function ctermfg=148 ctermbg=NONE cterm=NONE
-hi Identifier ctermfg=9 ctermbg=NONE cterm=NONE
+hi Function ctermfg=119 ctermbg=NONE cterm=NONE
+hi Identifier ctermfg=darkgrey ctermbg=NONE cterm=NONE
 hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE
 hi Keyword ctermfg=197 ctermbg=NONE cterm=NONE
 hi Label ctermfg=186 ctermbg=NONE cterm=NONE
-hi LineNr ctermfg=darkgrey ctermbg=232 cterm=NONE
+hi LineNr ctermfg=darkgrey ctermbg=black cterm=NONE
 hi MatchParen ctermfg=green ctermbg=blue cterm=bold
 hi ModeMsg ctermfg=darkblue ctermbg=green cterm=bold
 hi NonText ctermfg=darkgrey ctermbg=NONE cterm=NONE
@@ -102,8 +102,8 @@ hi SpecialComment ctermfg=210 ctermbg=NONE cterm=NONE
 hi SpecialKey ctermfg=49 ctermbg=NONE cterm=NONE
 hi SpellBad ctermfg=white ctermbg=red cterm=bold
 hi Statement ctermfg=6 ctermbg=NONE cterm=NONE
-hi StatusLine ctermfg=green ctermbg=232 cterm=bold
-hi StatusLineNC ctermfg=darkgrey ctermbg=232 cterm=none
+hi StatusLine ctermfg=green ctermbg=black cterm=bold
+hi StatusLineNC ctermfg=darkgrey ctermbg=black cterm=none
 hi StorageClass ctermfg=81 ctermbg=NONE cterm=NONE
 hi String ctermfg=110 ctermbg=NONE cterm=NONE
 hi TabLine cterm=NONE
@@ -113,7 +113,7 @@ hi Todo ctermfg=95 ctermbg=NONE cterm=bold
 hi Type ctermfg=205 ctermbg=NONE cterm=NONE
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
 hi VertSplit ctermfg=233 ctermbg=233 cterm=NONE
-hi Visual ctermfg=NONE ctermbg=232 cterm=NONE
+hi Visual ctermfg=NONE ctermbg=black cterm=NONE
 hi WarningMsg ctermfg=231 ctermbg=197 cterm=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE
 hi cssClassName ctermfg=148 ctermbg=NONE cterm=NONE
@@ -147,8 +147,11 @@ nmap <F2><F2> :set number!<CR>
 map <F4> :Ex<cr>
 map <leader><F4> :Vex<cr>
 map <F5> :!python3 %<cr>
+map <F9> :!python %<cr>
+map <leader>fe :!chardet %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
-map <F8> :so /home/orion/.vimrc<cr><leader><cr>
+"map <F8> :so /etc/vim/vimrc<cr><leader><cr>
+map <F8> :so /root/.vimrc<cr><leader><cr>
 map <F7> :colorscheme torte<CR>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<CR>
 map <leader>cc :close<cr>
