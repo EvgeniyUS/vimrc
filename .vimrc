@@ -1,7 +1,7 @@
 """"""""MAIN""""""""
 
 filetype on
-filetype plugin indent on
+"filetype plugin indent on
 set nocompatible
 set path+=**
 set history=400
@@ -20,21 +20,22 @@ set magic
 set showmatch
 set encoding=utf-8
 set expandtab
-set smarttab
-set shiftwidth=2
 set tabstop=2
+set shiftwidth=2
+set smarttab
 set autoindent
 set smartindent
 set wrap
-set whichwrap+=<,>,h,l
 set laststatus=2
-set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
+set statusline=\%{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
+set cursorcolumn
 set cursorline
 set hidden
 set backspace=indent,eol,start
 let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
 let g:netrw_liststyle=1
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
+autocmd BufReadPost *.py :set omnifunc=pythoncomplete#Complete
 autocmd CompleteDone * pclose
 
 " Ctags
@@ -59,7 +60,7 @@ set noswapfile
 hi clear
 syntax reset
 if &t_Co > 1
-    syntax enable
+  syntax enable
 endif
 set t_Co=256
 hi Normal ctermfg=250 ctermbg=234 cterm=bold
@@ -69,6 +70,7 @@ hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE
 hi Comment ctermfg=242 ctermbg=NONE cterm=NONE
 hi Conditional ctermfg=93 ctermbg=NONE cterm=NONE
 hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE
+hi CursorColumn ctermfg=NONE ctermbg=233 cterm=NONE
 hi CursorLine ctermfg=NONE ctermbg=233 cterm=NONE
 hi CursorLineNr ctermfg=black ctermbg=darkgrey cterm=NONE
 hi Define ctermfg=68 ctermbg=NONE cterm=NONE
@@ -215,29 +217,29 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Returns true if paste mode is enabled
 function! HasPaste()
-    if &paste
-        return '[PASTE MODE] '
-    endif
-    return ''
+  if &paste
+    return '[PASTE MODE] '
+  endif
+  return ''
 endfunction
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
+  let l:currentBufNum = bufnr("%")
+  let l:alternateBufNum = bufnr("#")
+ 
+  if buflisted(l:alternateBufNum)
+    buffer #
+  else
+    bnext
+  endif
+ 
+  if bufnr("%") == l:currentBufNum
+    new
+  endif
+ 
+  if buflisted(l:currentBufNum)
+    execute("bdelete! ".l:currentBufNum)
+  endif
 endfunction
