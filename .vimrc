@@ -12,13 +12,13 @@ set so=8
 set wildmenu
 set ruler
 set showcmd
-set ignorecase
-set smartcase
+"set ignorecase
+"set smartcase
 set hlsearch
 set incsearch
 set magic
 set showmatch
-set encoding=utf-8
+"set encoding=utf-8
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -27,7 +27,7 @@ set autoindent
 set smartindent
 set wrap
 set laststatus=2
-set statusline=\%{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%
+set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%\ 
 set cursorcolumn
 set cursorline
 set hidden
@@ -162,6 +162,7 @@ nmap <Tab> :find
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 
 " Searches and replace the current word/selection
+vnoremap <leader><F3> :s/\%V//g<Left><Left><Left>
 vnoremap <F3> y:%s/<C-R>"//g<Left><Left>
 nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
 
@@ -174,16 +175,14 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Close the current buffer
-map <leader>bc :Bclose<cr>
-
-" Close all the buffers
-map <leader>ba :bufdo bd<cr>
+" Buffers
+map <leader>bb :buffers<cr>:buffer 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
-map <leader>b :buffer 
+map <leader>bc :Bclose<cr>
+map <leader>ba :bufdo bd<cr>
 
-" Useful mappings for managing tabs
+" Managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
@@ -192,13 +191,13 @@ map <leader>ts :tabnext<cr>
 " Opens a new tab with the current buffer's path
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-" Switch CWD to the directory of the open buffer
+" Switch CWD to the directory of the current buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Toggle and untoggle spell checking
+" Toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
-" Toggle paste mode on and off
+" Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
 
 
