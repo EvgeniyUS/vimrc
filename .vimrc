@@ -36,7 +36,7 @@ let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
 let g:netrw_liststyle=1
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
 autocmd BufReadPost *.py :set omnifunc=pythoncomplete#Complete
-autocmd CompleteDone * pclose
+"autocmd CompleteDone * pclose
 
 " Ctags
 command! MakeTags !ctags -R .
@@ -144,8 +144,10 @@ hi yamlKey ctermfg=197 ctermbg=NONE cterm=NONE
 let mapleader = "\<space>"
 nnoremap j gj
 nnoremap k gk
-nmap <F2> :set relativenumber!<CR>
-nmap <F2><F2> :set number!<CR>
+vnoremap j gj
+vnoremap k gk
+nmap <F2> :set relativenumber!<cr>
+nmap <F2><F2> :set number!<cr>
 map <F4> :Ex<cr>
 map <leader><F4> :Vex<cr>
 map <F5> :!python3 %<cr>
@@ -154,11 +156,11 @@ map <leader>fe :!chardet %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 "map <F8> :so /etc/vim/vimrc<cr><leader><cr>
 map <F8> :so /root/.vimrc<cr><leader><cr>
-map <F7> :colorscheme torte<CR>
-map <F6> :so $VIMRUNTIME/syntax/hitest.vim<CR>
+map <F7> :colorscheme torte<cr>
+map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <leader>cc :close<cr>
 nmap <leader>w :w!<cr>
-nmap <Tab> :find 
+nmap <Tab> :<c-f>ifind 
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 
 " Searches and replace the current word/selection
