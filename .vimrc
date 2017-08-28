@@ -32,8 +32,10 @@ set cursorcolumn
 set cursorline
 set hidden
 set backspace=indent,eol,start
-let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
+"let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
+let netrw_bufsettings="noma nomod nowrap ro nobl"
 let g:netrw_liststyle=1
+let g:netrw_browse_split=4
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
 autocmd BufReadPost *.py :set omnifunc=pythoncomplete#Complete
 "autocmd CompleteDone * pclose
@@ -148,22 +150,21 @@ vnoremap j gj
 vnoremap k gk
 nmap <F2> :set relativenumber!<cr>
 nmap <F2><F2> :set number!<cr>
-map <F4> :Ex<cr>
-map <leader><F4> :Vex<cr>
+map <F4> :Vex<cr>:vertical resize 35<cr>:set norelativenumber<cr>:set nonumber<cr>
 map <F5> :!python3 %<cr>
 map <F9> :!python %<cr>
 map <leader>fe :!chardet %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 "map <F8> :so /etc/vim/vimrc<cr><leader><cr>
 map <F8> :so /root/.vimrc<cr><leader><cr>
-map <F7> :colorscheme torte<cr>
+map <F7> :colorscheme pablo<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <leader>cc :close<cr>
 nmap <leader>w :w!<cr>
 nmap <Tab> :<c-f>ifind 
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 
-" Searches and replace the current word/selection
+" Substitute current word/selection
 vnoremap <leader><F3> :s/\%V//g<Left><Left><Left>
 vnoremap <F3> y:%s/<C-R>"//g<Left><Left>
 nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
@@ -171,7 +172,7 @@ nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
 
-" Smart way to move between windows
+" Windows switch
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
