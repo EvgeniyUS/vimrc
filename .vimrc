@@ -32,8 +32,7 @@ set cursorcolumn
 set cursorline
 set hidden
 set backspace=indent,eol,start
-"let netrw_bufsettings="noma nomod rnu nowrap ro nobl"
-let netrw_bufsettings="noma nomod nowrap ro nobl"
+let netrw_bufsettings="noma nomod nowrap nonu nornu ro nobl"
 let g:netrw_liststyle=1
 let g:netrw_browse_split=4
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
@@ -150,7 +149,7 @@ vnoremap j gj
 vnoremap k gk
 nmap <F2> :set relativenumber!<cr>
 nmap <F2><F2> :set number!<cr>
-map <F4> :Vex<cr>:vertical resize 35<cr>:set norelativenumber<cr>:set nonumber<cr>
+map <F4> :Vex<cr>:vertical resize 35<cr>
 map <F5> :!python3 %<cr>
 map <F9> :!python %<cr>
 map <leader>fe :!chardet %<cr>
