@@ -144,25 +144,25 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-nmap <F2> :set wrap!<cr>
+map <F2> :set wrap!<cr>
 map <F4> :Vex<cr>:vertical resize 35<cr>
 map <F5> :!python3 %<cr>
-map <F9> :!python %<cr>
-map <leader>fe :!chardet %<cr>
-map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
-"map <F8> :so /etc/vim/vimrc<cr><leader><cr>
-map <F8> :so /root/.vimrc<cr><leader><cr>
-map <F7> :colorscheme pablo<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
+map <F7> :colorscheme pablo<cr>
+map <F8> :so /root/.vimrc<cr><leader><cr>
+map <F9> :!python %<cr>
+map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 map <leader>cc :close<cr>
-nmap <leader>w :w!<cr>
-nmap <Tab> :<c-f>ifind 
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
+map <leader>fe :!chardet %<cr>
+map <leader>r :reg<cr>
+map <leader>w :w!<cr>
+nmap <Tab> :<c-f>ifind 
 
 " Substitute current word/selection
-vnoremap <leader><F3> :s/\%V//g<Left><Left><Left>
-vnoremap <F3> y:%s/<C-R>"//g<Left><Left>
 nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
+vnoremap <F3> y:%s/<C-R>"//g<Left><Left>
+vnoremap <leader><F3> :s/\%V//g<Left><Left><Left>
 
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
@@ -174,18 +174,19 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Buffers
-map <leader>bb :buffers<cr>:buffer 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
-map <leader>bc :Bclose<cr>
+"map <leader>bb :buffers<cr>:buffer 
 map <leader>ba :bufdo bd<cr>
+map <leader>bb :<c-f>ibuffer 
+map <leader>bc :Bclose<cr>
+map <leader>h :bprevious<cr>
+map <leader>l :bnext<cr>
 
 " Tabs
+map <leader>ta :tab ball<cr>
+map <leader>tc :tabclose<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
 map <leader>ts :tabnext<cr>
-map <leader>ta :tab ball<cr>
 
 " Switch CWD to the directory of the current buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
