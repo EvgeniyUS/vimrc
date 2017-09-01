@@ -1,7 +1,6 @@
 """"""""MAIN""""""""
 
 filetype on
-"filetype plugin indent on
 set nocompatible
 set path+=**
 set history=400
@@ -12,13 +11,11 @@ set so=8
 set wildmenu
 set ruler
 set showcmd
-"set ignorecase
-"set smartcase
 set hlsearch
 set incsearch
 set magic
 set showmatch
-"set encoding=utf-8
+set encoding=utf-8
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -147,8 +144,7 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-nmap <F2> :set relativenumber!<cr>
-nmap <F2><F2> :set number!<cr>
+nmap <F2> :set wrap!<cr>
 map <F4> :Vex<cr>:vertical resize 35<cr>
 map <F5> :!python3 %<cr>
 map <F9> :!python %<cr>
@@ -171,7 +167,7 @@ nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
 
-" Windows switch
+" Windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -184,14 +180,12 @@ map <leader>h :bprevious<cr>
 map <leader>bc :Bclose<cr>
 map <leader>ba :bufdo bd<cr>
 
-" Managing tabs
+" Tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>ts :tabnext<cr>
-
-" Opens a new tab with the current buffer's path
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map <leader>ta :tab ball<cr>
 
 " Switch CWD to the directory of the current buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
