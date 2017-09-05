@@ -21,7 +21,6 @@ def Funk():
         if line.split(' ')[3].split('=')[1].encode(encoding='utf-8')==str(rootEle2.getAttribute('cterm')).encode(encoding='utf-8'):
           T = 'guibg='+ str(rootEle2.getAttribute('gui')).encode(encoding='utf-8')
 
-    #print line.split(' ')[4].split('=')[1].encode(encoding='utf-8')
     if line.split(' ')[4].split('=')[1].encode(encoding='utf-8').strip('\n')=='NONE':
       F = 'gui=NONE'
     elif line.split(' ')[4].split('=')[1].encode(encoding='utf-8').strip('\n')=='bold':
