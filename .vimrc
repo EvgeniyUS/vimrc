@@ -60,87 +60,62 @@ syntax reset
 set t_Co=256
 syntax enable
 if has('win32')
-  colorscheme desert
-  hi CursorColumn guifg=NONE guibg=#292929 gui=NONE
-  hi CursorLine guifg=NONE guibg=#292929 gui=NONE
   set guifont=Consolas:h12
-else
-  hi Normal ctermfg=250 ctermbg=234 cterm=bold
-  hi Boolean ctermfg=13 ctermbg=NONE cterm=NONE
-  hi Character ctermfg=8 ctermbg=NONE cterm=NONE
-  hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE
-  hi Comment ctermfg=242 ctermbg=NONE cterm=NONE
-  hi Conditional ctermfg=93 ctermbg=NONE cterm=NONE
-  hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi CursorColumn ctermfg=NONE ctermbg=233 cterm=NONE
-  hi CursorLine ctermfg=NONE ctermbg=233 cterm=NONE
-  hi CursorLineNr ctermfg=16 ctermbg=102 cterm=NONE
-  hi Define ctermfg=68 ctermbg=NONE cterm=NONE
-  hi Directory ctermfg=31 ctermbg=NONE cterm=bold
-  hi EndOfBuffer ctermfg=250 ctermbg=234 cterm=NONE
-  hi ErrorMsg ctermfg=197 ctermbg=NONE cterm=bold
-  hi Exception ctermfg=179 ctermbg=NONE cterm=bold
-  hi Float ctermfg=181 ctermbg=NONE cterm=NONE
-  hi Folded ctermfg=242 ctermbg=235 cterm=NONE
-  hi Function ctermfg=119 ctermbg=NONE cterm=NONE
-  hi Identifier ctermfg=102 ctermbg=NONE cterm=NONE
-  hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE
-  hi Keyword ctermfg=197 ctermbg=NONE cterm=NONE
-  hi Label ctermfg=186 ctermbg=NONE cterm=NONE
-  hi LineNr ctermfg=102 ctermbg=16 cterm=NONE
-  hi MatchParen ctermfg=119 ctermbg=blue cterm=bold
-  hi ModeMsg ctermfg=darkblue ctermbg=119 cterm=bold
-  hi NonText ctermfg=102 ctermbg=NONE cterm=NONE
-  hi Number ctermfg=141 ctermbg=NONE cterm=NONE
-  hi Operator ctermfg=137 ctermbg=NONE cterm=NONE
-  hi Pmenu ctermfg=16 ctermbg=219 cterm=NONE
-  hi PmenuSbar ctermfg=NONE ctermbg=219 cterm=NONE
-  hi PmenuSel ctermfg=16 ctermbg=119 cterm=NONE
-  hi PmenuThumb ctermfg=NONE ctermbg=52 cterm=NONE
-  hi PreProc ctermfg=197 ctermbg=NONE cterm=NONE
-  hi Repeat ctermfg=205 ctermbg=NONE cterm=NONE
-  hi Search ctermfg=119 ctermbg=blue cterm=bold
-  hi SignColumn ctermfg=NONE ctermbg=237 cterm=NONE
-  hi Special ctermfg=138 ctermbg=NONE cterm=NONE
-  hi SpecialComment ctermfg=210 ctermbg=NONE cterm=NONE
-  hi SpecialKey ctermfg=49 ctermbg=NONE cterm=NONE
-  hi SpellBad ctermfg=white ctermbg=red cterm=bold
-  hi Statement ctermfg=81 ctermbg=NONE cterm=NONE
-  hi StatusLine ctermfg=119 ctermbg=16 cterm=bold
-  hi StatusLineNC ctermfg=102 ctermbg=16 cterm=none
-  hi StorageClass ctermfg=81 ctermbg=NONE cterm=NONE
-  hi String ctermfg=110 ctermbg=NONE cterm=NONE
-  hi TabLine cterm=NONE
-  hi Tag ctermfg=73 ctermbg=NONE cterm=NONE
-  hi Title ctermfg=203 ctermbg=NONE cterm=bold
-  hi Todo ctermfg=95 ctermbg=NONE cterm=bold
-  hi Type ctermfg=144 ctermbg=NONE cterm=NONE
-  hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
-  hi VertSplit ctermfg=233 ctermbg=233 cterm=NONE
-  hi Visual ctermfg=NONE ctermbg=16 cterm=NONE
-  hi WarningMsg ctermfg=231 ctermbg=197 cterm=NONE
-  hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi cssClassName ctermfg=148 ctermbg=NONE cterm=NONE
-  hi cssColor ctermfg=141 ctermbg=NONE cterm=NONE
-  hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE
-  hi cssFunctionName ctermfg=81 ctermbg=NONE cterm=NONE
-  hi cssPseudoClassId ctermfg=148 ctermbg=NONE cterm=NONE
-  hi cssURL ctermfg=208 ctermbg=NONE cterm=NONE
-  hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE
-  hi htmlArg ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi htmlEndTag ctermfg=148 ctermbg=NONE cterm=NONE
-  hi htmlSpecialChar ctermfg=141 ctermbg=NONE cterm=NONE
-  hi htmlTag ctermfg=149 ctermbg=NONE cterm=NONE
-  hi htmlTagName ctermfg=8 ctermbg=NONE cterm=bold
-  hi javaScriptBraces ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi javaScriptFunction ctermfg=71 ctermbg=NONE cterm=NONE
-  hi javaScriptRailsFunction ctermfg=81 ctermbg=NONE cterm=NONE
-  hi yamlAlias ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi yamlAnchor ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi yamlDocumentHeader ctermfg=186 ctermbg=NONE
-  hi yamlKey ctermfg=197 ctermbg=NONE cterm=NONE
-  hi pythonAttribute ctermfg=156 ctermbg=NONE cterm=bold
 endif
+
+hi Normal ctermfg=251 ctermbg=234 cterm=bold guibg=#1c1c1c guifg=#c6c6c6 gui=bold
+hi Boolean ctermfg=130 ctermbg=NONE cterm=NONE guifg=#af5f00 gui=NONE
+hi Character ctermfg=238 ctermbg=NONE cterm=NONE guifg=#444444 gui=NONE
+hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guibg=#3a3a3a gui=NONE
+hi Comment ctermfg=242 ctermbg=NONE cterm=NONE guifg=#6c6c6c gui=NONE
+hi Conditional ctermfg=223 ctermbg=NONE cterm=bold guifg=#ffd7af gui=bold
+hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE gui=NONE
+hi CursorColumn ctermfg=NONE ctermbg=233 cterm=NONE guibg=#121212 gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=233 cterm=NONE guibg=#121212 gui=NONE
+hi CursorLineNr ctermfg=16 ctermbg=102 cterm=NONE guibg=#878787 guifg=#000000 gui=NONE
+hi Define ctermfg=68 ctermbg=NONE cterm=NONE guifg=#5f87d7 gui=NONE
+hi Directory ctermfg=31 ctermbg=NONE cterm=bold guifg=#0087af gui=bold
+hi EndOfBuffer ctermfg=250 ctermbg=234 cterm=NONE guibg=#1c1c1c guifg=#bcbcbc gui=NONE
+hi ErrorMsg ctermfg=88 ctermbg=NONE cterm=bold guifg=#870000 gui=bold
+hi Exception ctermfg=168 ctermbg=NONE cterm=bold guifg=#d75f87 gui=bold
+hi Float ctermfg=181 ctermbg=NONE cterm=NONE guifg=#d7afaf gui=NONE
+hi Folded ctermfg=242 ctermbg=235 cterm=NONE guibg=#262626 guifg=#6c6c6c gui=NONE
+hi Function ctermfg=144 ctermbg=NONE cterm=bold guifg=#afaf87 gui=bold
+hi Identifier ctermfg=102 ctermbg=NONE cterm=NONE guifg=#878787 gui=NONE
+hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE guibg=#d7d787 guifg=#262626 gui=NONE
+hi Keyword ctermfg=197 ctermbg=NONE cterm=NONE guifg=#ff005f gui=NONE
+hi Label ctermfg=185 ctermbg=NONE cterm=NONE guifg=#d7d75f gui=NONE
+hi LineNr ctermfg=102 ctermbg=16 cterm=NONE guibg=#000000 guifg=#878787 gui=NONE
+hi MatchParen ctermfg=119 ctermbg=111 cterm=bold guibg=#87afff guifg=#87ff5f gui=bold
+hi ModeMsg ctermfg=18 ctermbg=119 cterm=bold guibg=#87ff5f guifg=#000087 gui=bold
+hi NonText ctermfg=102 ctermbg=NONE cterm=NONE guifg=#878787 gui=NONE
+hi Number ctermfg=152 ctermbg=NONE cterm=bold guifg=#afd7d7 gui=bold
+hi Operator ctermfg=193 ctermbg=NONE cterm=bold guifg=#d7ffaf gui=bold
+hi Pmenu ctermfg=16 ctermbg=219 cterm=NONE guibg=#ffafff guifg=#000000 gui=NONE
+hi PmenuSbar ctermfg=17 ctermbg=219 cterm=NONE guibg=#ffafff guifg=#00005f gui=NONE
+hi PmenuSel ctermfg=16 ctermbg=119 cterm=NONE guibg=#87ff5f guifg=#000000 gui=NONE
+hi PmenuThumb ctermfg=NONE ctermbg=88 cterm=NONE guibg=#870000 gui=NONE
+hi PreProc ctermfg=139 ctermbg=NONE cterm=NONE guifg=#af87af gui=NONE
+hi Repeat ctermfg=71 ctermbg=NONE cterm=bold guifg=#5faf5f gui=bold
+hi Search ctermfg=119 ctermbg=111 cterm=bold guibg=#87afff guifg=#87ff5f gui=bold
+hi SignColumn ctermfg=NONE ctermbg=237 cterm=NONE guibg=#3a3a3a gui=NONE
+hi Special ctermfg=138 ctermbg=NONE cterm=NONE guifg=#af8787 gui=NONE
+hi SpecialComment ctermfg=210 ctermbg=NONE cterm=NONE guifg=#ff8787 gui=NONE
+hi SpecialKey ctermfg=49 ctermbg=NONE cterm=NONE guifg=#00ffaf gui=NONE
+hi SpellBad ctermfg=152 ctermbg=160 cterm=bold guibg=#d70000 guifg=#afd7d7 gui=bold
+hi Statement ctermfg=138 ctermbg=NONE cterm=bold guifg=#af8787 gui=bold
+hi StatusLine ctermfg=119 ctermbg=16 cterm=bold guibg=#000000 guifg=#87ff5f gui=bold
+hi StatusLineNC ctermfg=102 ctermbg=16 cterm=none guibg=#000000 guifg=#878787
+hi StorageClass ctermfg=81 ctermbg=NONE cterm=NONE guifg=#5fd7ff gui=NONE
+hi String ctermfg=110 ctermbg=NONE cterm=NONE guifg=#87afd7 gui=NONE
+hi Tag ctermfg=73 ctermbg=NONE cterm=NONE guifg=#5fafaf gui=NONE
+hi Title ctermfg=203 ctermbg=NONE cterm=bold guifg=#ff5f5f gui=bold
+hi Todo ctermfg=95 ctermbg=NONE cterm=bold guifg=#875f5f gui=bold
+hi Type ctermfg=180 ctermbg=NONE cterm=NONE guifg=#d7af87 gui=NONE
+hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
+hi VertSplit ctermfg=233 ctermbg=233 cterm=NONE guibg=#121212 guifg=#121212 gui=NONE
+hi Visual ctermfg=NONE ctermbg=16 cterm=NONE guibg=#000000 gui=NONE
+hi WarningMsg ctermfg=231 ctermbg=197 cterm=NONE guibg=#ff005f guifg=#ffffff gui=NONE
 
 
 """"""""MAPPING""""""""
@@ -155,7 +130,7 @@ map <F4> :Vex<cr>:vertical resize 35<cr>
 map <F5> :!python3 %<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <F7> :colorscheme pablo<cr>:set nocursorcolumn<cr>
-map <F8> :so /root/.vimrc<cr><leader><cr>
+map <F8> :so %<cr><leader><cr>
 map <F9> :!python %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 map <leader>cc :close<cr>
@@ -174,16 +149,16 @@ vnoremap <leader><F3> :s/\%V//g<Left><Left><Left>
 map <silent> <leader><cr> :noh<cr>
 
 " Windows
-"map <C-j> <C-W>j
-"map <C-k> <C-W>k
-"map <C-h> <C-W>h
-"map <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Buffers
 "map <leader>bb :buffers<cr>:buffer 
 map <leader>ba :bufdo bd<cr>
 map <leader>bb :<c-f>ibuffer 
-map <Del> :Bclose<cr>
+nmap <Bs> :Bclose<cr>
 map <leader>h :bprevious<cr>
 map <leader>l :bnext<cr>
 
