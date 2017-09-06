@@ -42,9 +42,8 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNO
 command! MakeTags !ctags -R .
 
 " No sound or blinking
-set novisualbell
-set noerrorbells
-set t_vb=
+set noerrorbells visualbell t_vb=
+autocmd GUIenter * set visualbell t_vb=
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -54,6 +53,12 @@ set nobackup
 set nowb
 set noswapfile
 
+" Pretty gvim
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
 
 """"""""STYLE""""""""
 
@@ -61,9 +66,7 @@ hi clear
 syntax reset
 set t_Co=256
 syntax enable
-if has('win32')
-  set guifont=Consolas:h12
-endif
+set guifont=Consolas:h12
 
 hi Normal ctermfg=251 ctermbg=234 cterm=bold guibg=#1c1c1c guifg=#c6c6c6 gui=bold
 hi Boolean ctermfg=130 ctermbg=NONE cterm=NONE guifg=#af5f00 gui=NONE
