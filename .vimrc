@@ -36,6 +36,7 @@ let g:netrw_browse_split=4
 "autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
 autocmd BufReadPost *.py :set omnifunc=pythoncomplete#Complete
 "autocmd CompleteDone * pclose
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 " Ctags
 command! MakeTags !ctags -R .
