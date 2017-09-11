@@ -151,22 +151,22 @@ vmap <F3> y:%s/<C-R>"//g<Left><Left>
 vmap <leader><F3> :s/\%V//g<Left><Left><Left>
 
 " Suround
-vmap <leader>s" "sy:s@\%V<C-R>h@"<C-R>h"@<cr>:noh<cr>
-vmap <leader>s' "sy:s@\%V<C-R>h@'<C-R>h'@<cr>:noh<cr>
-vmap <leader>s( "sy:s@\%V<C-R>h@(<C-R>h)@<cr>:noh<cr>
-vmap <leader>s) "sy:s@\%V<C-R>h@(<C-R>h)@<cr>:noh<cr>
-vmap <leader>s[ "sy:s@\%V<C-R>h@[<C-R>h]@<cr>:noh<cr>
-vmap <leader>s] "sy:s@\%V<C-R>h@[<C-R>h]@<cr>:noh<cr>
-vmap <leader>s{ "sy:s@\%V<C-R>h@{<C-R>h}@<cr>:noh<cr>
-vmap <leader>s} "sy:s@\%V<C-R>h@{<C-R>h}@<cr>:noh<cr>
-nmap <leader>s" viw"sy:s/\%V<C-R>h/"<C-R>h"/<cr>:noh<cr>
-nmap <leader>s' viw"sy:s/\%V<C-R>h/'<C-R>h'/<cr>:noh<cr>
-nmap <leader>s( viw"sy:s/\%V<C-R>h/(<C-R>h)/<cr>:noh<cr>
-nmap <leader>s) viw"sy:s/\%V<C-R>h/(<C-R>h)/<cr>:noh<cr>
-nmap <leader>s[ viw"sy:s/\%V<C-R>h/[<C-R>h]/<cr>:noh<cr>
-nmap <leader>s] viw"sy:s/\%V<C-R>h/[<C-R>h]/<cr>:noh<cr>
-nmap <leader>s{ viw"sy:s/\%V<C-R>h/{<C-R>h}/<cr>:noh<cr>
-nmap <leader>s} viw"sy:s/\%V<C-R>h/{<C-R>h}/<cr>:noh<cr>
+vmap <leader>s" "sy:s@\%V<C-R>s@"<C-R>s"@<cr>:noh<cr>
+vmap <leader>s' "sy:s@\%V<C-R>s@'<C-R>s'@<cr>:noh<cr>
+vmap <leader>s( "sy:s@\%V<C-R>s@(<C-R>s)@<cr>:noh<cr>
+vmap <leader>s) "sy:s@\%V<C-R>s@(<C-R>s)@<cr>:noh<cr>
+vmap <leader>s[ "sy:s@\%V<C-R>s@[<C-R>s]@<cr>:noh<cr>
+vmap <leader>s] "sy:s@\%V<C-R>s@[<C-R>s]@<cr>:noh<cr>
+vmap <leader>s{ "sy:s@\%V<C-R>s@{<C-R>s}@<cr>:noh<cr>
+vmap <leader>s} "sy:s@\%V<C-R>s@{<C-R>s}@<cr>:noh<cr>
+nmap <leader>s" viw"sy:s/\%V<C-R>s/"<C-R>s"/<cr>:noh<cr>
+nmap <leader>s' viw"sy:s/\%V<C-R>s/'<C-R>s'/<cr>:noh<cr>
+nmap <leader>s( viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
+nmap <leader>s) viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
+nmap <leader>s[ viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr>:noh<cr>
+nmap <leader>s] viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr>:noh<cr>
+nmap <leader>s{ viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr>:noh<cr>
+nmap <leader>s} viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr>:noh<cr>
 
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
