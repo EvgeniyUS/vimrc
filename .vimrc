@@ -9,7 +9,6 @@ set number
 set relativenumber
 set so=8
 set wildmenu
-set ruler
 set showcmd
 set hlsearch
 set incsearch
@@ -89,7 +88,7 @@ hi Function ctermfg=144 ctermbg=NONE cterm=bold guifg=#afaf87 gui=bold
 hi Identifier ctermfg=102 ctermbg=NONE cterm=NONE guifg=#878787 gui=NONE
 hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE guibg=#d7d787 guifg=#262626 gui=NONE
 hi Keyword ctermfg=197 ctermbg=NONE cterm=NONE guifg=#ff005f gui=NONE
-hi Label ctermfg=185 ctermbg=NONE cterm=NONE guifg=#d7d75f gui=NONE
+hi Label ctermfg=151 ctermbg=NONE cterm=NONE guifg=#afd7af gui=NONE
 hi LineNr ctermfg=102 ctermbg=16 cterm=NONE guibg=#000000 guifg=#878787 gui=NONE
 hi MatchParen ctermfg=119 ctermbg=111 cterm=bold guibg=#87afff guifg=#87ff5f gui=bold
 hi ModeMsg ctermfg=18 ctermbg=119 cterm=bold guibg=#87ff5f guifg=#000087 gui=bold
@@ -114,7 +113,7 @@ hi StatusLineNC ctermfg=102 ctermbg=16 cterm=none guifg=#000000 guibg=#878787
 hi StorageClass ctermfg=81 ctermbg=NONE cterm=NONE guifg=#5fd7ff gui=NONE
 hi String ctermfg=110 ctermbg=NONE cterm=NONE guifg=#87afd7 gui=NONE
 hi Tag ctermfg=73 ctermbg=NONE cterm=NONE guifg=#5fafaf gui=NONE
-hi Title ctermfg=203 ctermbg=NONE cterm=bold guifg=#ff5f5f gui=bold
+hi Title ctermfg=196 ctermbg=NONE cterm=bold guifg=#ff0000 gui=bold
 hi Todo ctermfg=95 ctermbg=NONE cterm=bold guifg=#875f5f gui=bold
 hi Type ctermfg=180 ctermbg=NONE cterm=NONE guifg=#d7af87 gui=NONE
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
@@ -135,20 +134,39 @@ map <F4> :Vex<cr>:vertical resize 35<cr>
 map <F5> :!python3 %<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <F7> :colorscheme pablo<cr>:set nocursorcolumn<cr>
-map <F8> :so %<cr><leader><cr>
+map <F8> :so %<cr>:noh<cr>
 map <F9> :!python %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 map <leader>cc :close<cr>
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 map <leader>fe :!chardet %<cr>
+map <leader>n :set nonu!<cr>:set nornu!<cr>
 map <leader>r :reg<cr>
 map <leader>w :w!<cr>
 nmap <Tab> :<c-f>ifind 
 
 " Substitute current word/selection
-nnoremap <F3> viwy:%s/<C-R>"//g<Left><Left>
-vnoremap <F3> y:%s/<C-R>"//g<Left><Left>
-vnoremap <leader><F3> :s/\%V//g<Left><Left><Left>
+nmap <F3> viwy:%s/<C-R>"//g<Left><Left>
+vmap <F3> y:%s/<C-R>"//g<Left><Left>
+vmap <leader><F3> :s/\%V//g<Left><Left><Left>
+
+" Suround
+vmap <leader>s" "sy:s@\%V<C-R>h@"<C-R>h"@<cr>:noh<cr>
+vmap <leader>s' "sy:s@\%V<C-R>h@'<C-R>h'@<cr>:noh<cr>
+vmap <leader>s( "sy:s@\%V<C-R>h@(<C-R>h)@<cr>:noh<cr>
+vmap <leader>s) "sy:s@\%V<C-R>h@(<C-R>h)@<cr>:noh<cr>
+vmap <leader>s[ "sy:s@\%V<C-R>h@[<C-R>h]@<cr>:noh<cr>
+vmap <leader>s] "sy:s@\%V<C-R>h@[<C-R>h]@<cr>:noh<cr>
+vmap <leader>s{ "sy:s@\%V<C-R>h@{<C-R>h}@<cr>:noh<cr>
+vmap <leader>s} "sy:s@\%V<C-R>h@{<C-R>h}@<cr>:noh<cr>
+nmap <leader>s" viw"sy:s/\%V<C-R>h/"<C-R>h"/<cr>:noh<cr>
+nmap <leader>s' viw"sy:s/\%V<C-R>h/'<C-R>h'/<cr>:noh<cr>
+nmap <leader>s( viw"sy:s/\%V<C-R>h/(<C-R>h)/<cr>:noh<cr>
+nmap <leader>s) viw"sy:s/\%V<C-R>h/(<C-R>h)/<cr>:noh<cr>
+nmap <leader>s[ viw"sy:s/\%V<C-R>h/[<C-R>h]/<cr>:noh<cr>
+nmap <leader>s] viw"sy:s/\%V<C-R>h/[<C-R>h]/<cr>:noh<cr>
+nmap <leader>s{ viw"sy:s/\%V<C-R>h/{<C-R>h}/<cr>:noh<cr>
+nmap <leader>s} viw"sy:s/\%V<C-R>h/{<C-R>h}/<cr>:noh<cr>
 
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
@@ -175,7 +193,7 @@ map <leader>to :tabonly<cr>
 map <leader>ts :tabnext<cr>
 
 " Switch CWD to the directory of the current buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
 " Toggle spell checking
 map <leader>ss :setlocal spell!<cr>
