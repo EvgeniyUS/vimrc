@@ -23,7 +23,7 @@ set autoindent
 set smartindent
 set wrap
 set laststatus=2
-set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD:%{getcwd()}\ %l/%L\ %p%%\ 
+set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD=%{getcwd()}\ %l/%L\ %p%%\ 
 set cursorcolumn
 set cursorline
 set hidden
@@ -151,14 +151,14 @@ vmap <F3> y:%s/<C-R>"//g<Left><Left>
 vmap <leader><F3> :s/\%V//g<Left><Left><Left>
 
 " Suround
-vmap <leader>s" "sy:s@\%V<C-R>s@"<C-R>s"@<cr>:noh<cr>
-vmap <leader>s' "sy:s@\%V<C-R>s@'<C-R>s'@<cr>:noh<cr>
-vmap <leader>s( "sy:s@\%V<C-R>s@(<C-R>s)@<cr>:noh<cr>
-vmap <leader>s) "sy:s@\%V<C-R>s@(<C-R>s)@<cr>:noh<cr>
-vmap <leader>s[ "sy:s@\%V<C-R>s@[<C-R>s]@<cr>:noh<cr>
-vmap <leader>s] "sy:s@\%V<C-R>s@[<C-R>s]@<cr>:noh<cr>
-vmap <leader>s{ "sy:s@\%V<C-R>s@{<C-R>s}@<cr>:noh<cr>
-vmap <leader>s} "sy:s@\%V<C-R>s@{<C-R>s}@<cr>:noh<cr>
+vmap <leader>s" "sy:s@\%V\V<C-R>s@"<C-R>s"@<cr><Esc>:noh<cr>
+vmap <leader>s' "sy:s@\%V\V<C-R>s@'<C-R>s'@<cr><Esc>:noh<cr>
+vmap <leader>s( "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc>:noh<cr>
+vmap <leader>s) "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc>:noh<cr>
+vmap <leader>s[ "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc>:noh<cr>
+vmap <leader>s] "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc>:noh<cr>
+vmap <leader>s{ "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc>:noh<cr>
+vmap <leader>s} "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc>:noh<cr>
 nmap <leader>s" viw"sy:s/\%V<C-R>s/"<C-R>s"/<cr>:noh<cr>
 nmap <leader>s' viw"sy:s/\%V<C-R>s/'<C-R>s'/<cr>:noh<cr>
 nmap <leader>s( viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
