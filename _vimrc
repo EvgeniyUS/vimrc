@@ -134,7 +134,7 @@ map <F4> :Vex<cr>:vertical resize 35<cr>
 map <F5> :!python3 %<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <F7> :colorscheme pablo<cr>:set nocursorcolumn<cr>
-map <F8> :so %<cr>:noh<cr>
+map <F8> :so %<cr><leader><cr>
 map <F9> :!python %<cr>
 map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 map <leader>cc :close<cr>
@@ -151,37 +151,27 @@ nmap <F3> viwy:%s/<C-R>"//g<Left><Left>
 vmap <F3> y:%s/<C-R>"//g<Left><Left>
 map <leader><F3> :s/\%V//g<Left><Left><Left>
 
-nnoremap <leader>j :m .+1<CR>
-nnoremap <leader>k :m .-2<CR>
-"inoremap <leader>j <Esc>:m .+1<CR>gi
-"inoremap <leader>k <Esc>:m .-2<CR>gi
-"vnoremap <leader>j :m '>+1<CR>gv
-"vnoremap <leader>k :m '<-2<CR>gv
-
-"nnoremap <Down> :m .+1<CR>
-"nnoremap <Up> :m .-2<CR>
-inoremap <Down> <Esc>:m .+1<CR>gi
-inoremap <Up> <Esc>:m .-2<CR>gi
-vnoremap <Down> :m '>+1<CR>gv
-vnoremap <Up> :m '<-2<CR>gv
+" Moving selected lines up & down
+vmap <Down> :m'>+1<cr>gv
+vmap <Up> :m'<-2<cr>gv
 
 " Suround
-vmap <leader>s" "sy:s@\%V\V<C-R>s@"<C-R>s"@<cr><Esc>:noh<cr>
-vmap <leader>s' "sy:s@\%V\V<C-R>s@'<C-R>s'@<cr><Esc>:noh<cr>
-vmap <leader>s( "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc>:noh<cr>
-vmap <leader>s) "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc>:noh<cr>
-vmap <leader>s[ "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc>:noh<cr>
-vmap <leader>s] "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc>:noh<cr>
-vmap <leader>s{ "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc>:noh<cr>
-vmap <leader>s} "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc>:noh<cr>
-nmap <leader>s" viw"sy:s/\%V<C-R>s/"<C-R>s"/<cr>:noh<cr>
-nmap <leader>s' viw"sy:s/\%V<C-R>s/'<C-R>s'/<cr>:noh<cr>
-nmap <leader>s( viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
-nmap <leader>s) viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
-nmap <leader>s[ viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr>:noh<cr>
-nmap <leader>s] viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr>:noh<cr>
-nmap <leader>s{ viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr>:noh<cr>
-nmap <leader>s} viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr>:noh<cr>
+vmap <silent> <leader>s" "sy:s@\%V\V<C-R>s@"<C-R>s"@<cr><Esc><leader><cr>
+vmap <silent> <leader>s' "sy:s@\%V\V<C-R>s@'<C-R>s'@<cr><Esc><leader><cr>
+vmap <silent> <leader>s( "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc><leader><cr>
+vmap <silent> <leader>s) "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc><leader><cr>
+vmap <silent> <leader>s[ "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc><leader><cr>
+vmap <silent> <leader>s] "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc><leader><cr>
+vmap <silent> <leader>s{ "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc><leader><cr>
+vmap <silent> <leader>s} "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc><leader><cr>
+nmap <silent> <leader>s" viw"sy:s/\%V<C-R>s/"<C-R>s"/<cr><leader><cr>
+nmap <silent> <leader>s' viw"sy:s/\%V<C-R>s/'<C-R>s'/<cr><leader><cr>
+nmap <silent> <leader>s( viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr><leader><cr>
+nmap <silent> <leader>s) viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr><leader><cr>
+nmap <silent> <leader>s[ viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr><leader><cr>
+nmap <silent> <leader>s] viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr><leader><cr>
+nmap <silent> <leader>s{ viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr><leader><cr>
+nmap <silent> <leader>s} viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr><leader><cr>
 
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
@@ -221,9 +211,7 @@ map <leader>pp :setlocal paste!<cr>
 
 " Delete trailing white space on save
 function! DTWS()
-  "exe "normal mz"
   %s/\s\+$//ge
-  "exe "normal 'z"
 endfunction
 autocmd BufWrite *.py :call DTWS()
 
