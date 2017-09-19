@@ -147,7 +147,7 @@ map <leader>w :w!<cr>
 nmap <Tab> :<c-f>ifind 
 
 " Substitute current word/selection
-nmap <F3> viwy:%s/<C-R>"//g<Left><Left>
+nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
 vmap <F3> y:%s/<C-R>"//g<Left><Left>
 map <leader><F3> :s/\%V//g<Left><Left><Left>
 
