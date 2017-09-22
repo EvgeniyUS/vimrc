@@ -1,8 +1,9 @@
 """"""""MAIN""""""""
 
-filetype on
+filetype plugin on
 set nocompatible
 set path+=**
+set wildignorecase
 set history=400
 set autoread
 set number
@@ -145,6 +146,7 @@ map <leader>r :reg<cr>
 map <leader>m :marks<cr>
 map <leader>w :w!<cr>
 nmap <Tab> :<c-f>ifind 
+"nmap <Tab> :find 
 
 " Substitute current word/selection
 nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
@@ -183,9 +185,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Buffers
-"map <leader>bb :buffers<cr>:buffer 
+map <leader>bb :buffers<cr>:buffer 
 map <leader>ba :bufdo bd<cr>
-map <leader>bb :<c-f>ibuffer 
 nmap <Bs> :Bclose<cr>
 map <leader>h :bprevious<cr>
 map <leader>l :bnext<cr>
