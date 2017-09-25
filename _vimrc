@@ -1,5 +1,6 @@
 """"""""MAIN""""""""
 
+"filetype on
 filetype plugin on
 set nocompatible
 set path+=**
@@ -16,9 +17,9 @@ set incsearch
 set magic
 set showmatch
 set encoding=utf-8
-set expandtab
-set tabstop=2
-set shiftwidth=2
+"set expandtab
+"set tabstop=2
+"set shiftwidth=2
 set smarttab
 set autoindent
 set smartindent
@@ -33,9 +34,9 @@ set mouse=c
 let netrw_bufsettings="noma nomod nowrap nonu nornu ro nobl"
 let g:netrw_liststyle=1
 let g:netrw_browse_split=4
-"autocmd BufReadPost *.py :set omnifunc=python3complete#Complete
-autocmd BufReadPost *.py :set omnifunc=pythoncomplete#Complete
-"autocmd CompleteDone * pclose
+autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+autocmd CompleteDone * pclose
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 " Ctags
@@ -145,8 +146,7 @@ map <leader>n :set nonu!<cr>:set nornu!<cr>
 map <leader>r :reg<cr>
 map <leader>m :marks<cr>
 map <leader>w :w!<cr>
-nmap <Tab> :<c-f>ifind 
-"nmap <Tab> :find 
+nmap <Tab> :find 
 
 " Substitute current word/selection
 nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
