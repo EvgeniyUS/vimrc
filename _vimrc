@@ -34,6 +34,7 @@ set mouse=c
 let netrw_bufsettings="noma nomod nowrap nonu nornu ro nobl"
 let g:netrw_liststyle=1
 let g:netrw_browse_split=4
+let g:netrw_list_hide='.*\.pyc'
 autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
 autocmd CompleteDone * pclose
