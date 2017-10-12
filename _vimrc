@@ -153,6 +153,7 @@ nmap <Tab> :find
 nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
 vmap <F3> y:%s/<C-R>"//g<Left><Left>
 map <leader><F3> :s/\%V//g<Left><Left><Left>
+vmap <leader>/ "zy/<c-r>z<cr>
 
 " Moving selected lines up & down
 vmap <Down> :m'>+1<cr>gv
