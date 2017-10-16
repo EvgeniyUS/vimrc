@@ -189,7 +189,7 @@ map <C-l> <C-W>l
 " Buffers
 map <leader>bb :buffers<cr>:buffer 
 map <leader>ba :bufdo bd<cr>
-nmap <Bs> :Bclose<cr>
+nmap <Bs> :w<cr>:Bclose<cr>
 map <leader>h :bprevious<cr>
 map <leader>l :bnext<cr>
 
