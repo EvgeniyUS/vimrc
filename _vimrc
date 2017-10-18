@@ -32,8 +32,11 @@ set hidden
 set backspace=indent,eol,start
 set mouse=c
 let netrw_bufsettings="noma nomod nowrap nonu nornu ro nobl"
-let g:netrw_liststyle=1
+let g:netrw_banner = 0
+let g:netrw_liststyle=3
 let g:netrw_browse_split=4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
 let g:netrw_list_hide='.*\.pyc'
 autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
@@ -133,7 +136,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 map <F2> :set wrap!<cr>
-map <F4> :Vex<cr>:vertical resize 35<cr>
+"map <silent> <F4> :Vex<cr>:vertical resize 35<cr>
+map <silent> <F4> :Vex<cr>
 map <F5> :!python3 %<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
 map <F7> :colorscheme pablo<cr>:set nocursorcolumn<cr>
@@ -146,7 +150,8 @@ map <leader>fe :!chardet %<cr>
 map <leader>n :set nonu!<cr>:set nornu!<cr>
 map <leader>r :reg<cr>
 map <leader>m :marks<cr>
-map <leader>w :w!<cr>
+map <leader>W :w!<cr>
+map <leader>w :up<cr>
 nmap <Tab> :find 
 
 " Substitute current word/selection
@@ -189,7 +194,7 @@ map <C-l> <C-W>l
 " Buffers
 map <leader>bb :buffers<cr>:buffer 
 map <leader>ba :bufdo bd<cr>
-nmap <Bs> :w<cr>:Bclose<cr>
+nmap <Bs> :up<cr>:Bclose<cr>
 map <leader>h :bprevious<cr>
 map <leader>l :bnext<cr>
 
