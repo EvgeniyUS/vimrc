@@ -40,11 +40,8 @@ let g:netrw_winsize = 15
 let g:netrw_list_hide='.*\.pyc'
 autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
-autocmd CompleteDone * pclose
+"autocmd CompleteDone * pclose
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
-" Ctags
-command! MakeTags !ctags -R .
 
 " No sound or blinking
 set noerrorbells visualbell t_vb=
@@ -199,11 +196,11 @@ map <leader>h :bprevious<cr>
 map <leader>l :bnext<cr>
 
 " Tabs
-map <leader>ta :tab ball<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>ts :tabnext<cr>
+"map <leader>ta :tab ball<cr>
+"map <leader>tc :tabclose<cr>
+"map <leader>tn :tabnew<cr>
+"map <leader>to :tabonly<cr>
+"map <leader>ts :tabnext<cr>
 
 " Switch CWD to the directory of the current buffer
 map <leader>cd :lcd %:p:h<cr>:pwd<cr>
@@ -213,6 +210,10 @@ map <leader>ss :setlocal spell!<cr>
 
 " Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
+
+" Tags
+map <leader>T :!python C:\Python27\Tools\Scripts\ptags.py %<cr>
+map <leader>t :<c-f>itag <Tab>
 
 
 """"""""FUNC""""""""
