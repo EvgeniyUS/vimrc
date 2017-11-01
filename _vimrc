@@ -1,6 +1,5 @@
 """"""""MAIN""""""""
 
-"filetype on
 filetype plugin on
 set nocompatible
 set path+=**
@@ -32,11 +31,11 @@ set hidden
 set backspace=indent,eol,start
 set mouse=c
 let netrw_bufsettings="noma nomod nowrap nonu nornu ro nobl"
-let g:netrw_banner = 0
-let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_liststyle=0
 let g:netrw_browse_split=4
-let g:netrw_altv = 1
-let g:netrw_winsize = 15
+let g:netrw_altv=1
+let g:netrw_winsize=15
 let g:netrw_list_hide='.*\.pyc'
 autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
@@ -133,7 +132,6 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 map <F2> :set wrap!<cr>
-"map <silent> <F4> :Vex<cr>:vertical resize 35<cr>
 map <silent> <F4> :Vex<cr>
 map <F5> :!python3 %<cr>
 map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
