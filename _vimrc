@@ -203,15 +203,12 @@ map <leader>l :bnext<cr>
 " Switch CWD to the directory of the current buffer
 map <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
-" Toggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
 " Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
 
 " Tags
-map <leader>T :!python C:\Python27\Tools\Scripts\ptags.py %<cr>
-map <leader>t :<c-f>itag <Tab>
+" map <leader>T :!python C:\Python27\Tools\Scripts\ptags.py %<cr>
+map <leader>t :!start python C:\Python27\Tools\Scripts\ptags.py %<cr>:<c-f>itag 
 
 
 """"""""FUNC""""""""
