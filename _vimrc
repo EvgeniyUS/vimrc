@@ -7,7 +7,7 @@ set wildignorecase
 set history=400
 set autoread
 set number
-set relativenumber
+"set relativenumber
 set so=8
 set wildmenu
 set showcmd
