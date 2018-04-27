@@ -142,7 +142,8 @@ map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
 map <leader>cc :close<cr>
 map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
 map <leader>fe :!chardet %<cr>
-map <leader>n :set nonu!<cr>:set nornu!<cr>
+"map <leader>n :set nonu!<cr>:set nornu!<cr>
+map <leader>n :set nornu!<cr>
 map <leader>r :reg<cr>
 map <leader>m :marks<cr>
 map <leader>W :w!<cr>
