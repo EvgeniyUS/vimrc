@@ -13,6 +13,8 @@ set wildmenu
 set showcmd
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
 set magic
 set showmatch
 set encoding=utf-8
@@ -30,6 +32,8 @@ set cursorline
 set hidden
 set backspace=indent,eol,start
 set mouse=c
+"set winwidth=90
+"set winheight=40
 let netrw_bufsettings="noma nomod nowrap nonu nornu ro nobl"
 let g:netrw_banner=0
 let g:netrw_liststyle=0
@@ -127,34 +131,32 @@ hi WarningMsg ctermfg=231 ctermbg=197 cterm=NONE guibg=#ff005f guifg=#ffffff gui
 """"""""MAPPING""""""""
 
 let mapleader = "\<space>"
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-map <F2> :set wrap!<cr>
-map <silent> <F4> :Vex<cr>
-map <F5> :!python3 %<cr>
-map <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
-map <F7> :colorscheme pablo<cr>:set nocursorcolumn<cr>
-map <F8> :so %<cr><leader><cr>
-map <leader><F8> :so /etc/vim/vimrc<cr><leader><cr>
-map <F9> :!python2.7 %<cr>
-map <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
-map <leader>cc :close<cr>
-map <leader>e :edit <c-r>=expand("%:p:h")<cr>/
-map <leader>fe :!chardet %<cr>
-"map <leader>n :set nonu!<cr>:set nornu!<cr>
-map <leader>n :set nornu!<cr>
-map <leader>r :reg<cr>
-map <leader>m :marks<cr>
-map <leader>W :w!<cr>
-map <leader>w :up<cr>
+noremap j gj
+noremap k gk
+nmap <F2> :set wrap!<cr>
+nmap <silent> <F4> :Vex<cr>
+nmap <F5> :!python3 %<cr>
+nmap <F6> :so $VIMRUNTIME/syntax/hitest.vim<cr>
+nmap <F7> :colorscheme pablo<cr>:set nocursorcolumn<cr>
+nmap <F8> :so %<cr><leader><cr>
+nmap <leader><F8> :so /etc/vim/vimrc<cr><leader><cr>
+nmap <F9> :!python2.7 %<cr>
+nmap <leader><F5> :!gcc % -o %.exe<cr><cr>:!./%.exe<cr>
+nmap <leader><bs> :close<cr>
+nmap <leader>e :edit <c-r>=expand("%:p:h")<cr>/
+nmap <leader>fe :!chardet %<cr>
+"nmap <leader>n :set nonu!<cr>:set nornu!<cr>
+nmap <leader>n :set nornu!<cr>
+nmap <leader>r :reg<cr>
+nmap <leader>m :marks<cr>
+nmap <leader>W :w!<cr>
+nmap <leader>w :up<cr>
 nmap <Tab> :find 
 
 " Substitute current word/selection
 nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
 vmap <F3> y:%s/<C-R>"//g<Left><Left>
-map <leader><F3> :s/\%V//g<Left><Left><Left>
+vmap <leader><F3> :s/\%V//g<Left><Left><Left>
 vmap <leader>/ "zy/<c-r>z<cr>
 
 " Moving selected lines up & down
@@ -162,55 +164,59 @@ vmap <Down> :m'>+1<cr>gv
 vmap <Up> :m'<-2<cr>gv
 
 " Suround
-vmap <silent> <leader>s" "sy:s@\%V\V<C-R>s@"<C-R>s"@<cr><Esc><leader><cr>
-vmap <silent> <leader>s' "sy:s@\%V\V<C-R>s@'<C-R>s'@<cr><Esc><leader><cr>
-vmap <silent> <leader>s( "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc><leader><cr>
-vmap <silent> <leader>s) "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc><leader><cr>
-vmap <silent> <leader>s[ "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc><leader><cr>
-vmap <silent> <leader>s] "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc><leader><cr>
-vmap <silent> <leader>s{ "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc><leader><cr>
-vmap <silent> <leader>s} "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc><leader><cr>
-nmap <silent> <leader>s" viw"sy:s/\%V<C-R>s/"<C-R>s"/<cr><leader><cr>
-nmap <silent> <leader>s' viw"sy:s/\%V<C-R>s/'<C-R>s'/<cr><leader><cr>
-nmap <silent> <leader>s( viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr><leader><cr>
-nmap <silent> <leader>s) viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr><leader><cr>
-nmap <silent> <leader>s[ viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr><leader><cr>
-nmap <silent> <leader>s] viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr><leader><cr>
-nmap <silent> <leader>s{ viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr><leader><cr>
-nmap <silent> <leader>s} viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr><leader><cr>
+vmap <silent> <leader>s" "sy:s@\%V\V<C-R>s@"<C-R>s"@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s' "sy:s@\%V\V<C-R>s@'<C-R>s'@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s( "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s) "sy:s@\%V\V<C-R>s@(<C-R>s)@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s[ "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s] "sy:s@\%V\V<C-R>s@[<C-R>s]@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s{ "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc>:noh<cr>
+vmap <silent> <leader>s} "sy:s@\%V\V<C-R>s@{<C-R>s}@<cr><Esc>:noh<cr>
+nmap <silent> <leader>s" viw"sy:s/\%V<C-R>s/"<C-R>s"/<cr>:noh<cr>
+nmap <silent> <leader>s' viw"sy:s/\%V<C-R>s/'<C-R>s'/<cr>:noh<cr>
+nmap <silent> <leader>s( viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
+nmap <silent> <leader>s) viw"sy:s/\%V<C-R>s/(<C-R>s)/<cr>:noh<cr>
+nmap <silent> <leader>s[ viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr>:noh<cr>
+nmap <silent> <leader>s] viw"sy:s/\%V<C-R>s/[<C-R>s]/<cr>:noh<cr>
+nmap <silent> <leader>s{ viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr>:noh<cr>
+nmap <silent> <leader>s} viw"sy:s/\%V<C-R>s/{<C-R>s}/<cr>:noh<cr>
 
 " Disable highlight
-map <silent> <leader><cr> :noh<cr>
+nmap <silent> <leader><cr> :noh<cr>
 
 " Windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+
+" WinSize adjusting
+nmap <C-Right> <C-W>>
+nmap <C-Left> <C-W><
+nmap <C-Up> <C-W>+
+nmap <C-Down> <C-W>-
 
 " Buffers
-map <leader>bb :buffers<cr>:buffer 
-map <leader>ba :bufdo bd<cr>
+nmap <leader>b :buffers<cr>:buffer 
 nmap <Bs> :up<cr>:Bclose<cr>
-map <leader>h :bprevious<cr>
-map <leader>l :bnext<cr>
+nmap <leader>h :bprevious<cr>
+nmap <leader>l :bnext<cr>
 
 " Tabs
-"map <leader>ta :tab ball<cr>
-"map <leader>tc :tabclose<cr>
-"map <leader>tn :tabnew<cr>
-"map <leader>to :tabonly<cr>
-"map <leader>ts :tabnext<cr>
+nmap <S-l> gt
+nmap <S-h> gT
+nmap <S-k> :tabe %<cr>
+nmap <S-j> :tabclose<cr>
 
 " Switch CWD to the directory of the current buffer
-map <leader>cd :lcd %:p:h<cr>:pwd<cr>
+nmap <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
 " Toggle paste mode
-map <leader>pp :setlocal paste!<cr>
+nmap <leader>pp :setlocal paste!<cr>
 
 " Tags
 " map <leader>T :!python C:\Python27\Tools\Scripts\ptags.py %<cr>
-map <leader>t :!start python C:\Python27\Tools\Scripts\ptags.py %<cr>:<c-f>itag 
+nmap <leader>t :!start python C:\Python27\Tools\Scripts\ptags.py %<cr>:<c-f>itag 
 
 
 """"""""FUNC""""""""
