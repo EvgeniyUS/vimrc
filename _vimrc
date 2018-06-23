@@ -202,10 +202,10 @@ nmap <leader>h :bprevious<cr>
 nmap <leader>l :bnext<cr>
 
 " Tabs
-nmap <S-l> gt
-nmap <S-h> gT
-nmap <S-k> :tabe %<cr>
-nmap <S-j> :tabclose<cr>
+nmap <S-Right> gt
+nmap <S-Left> gT
+nmap <S-Up> :tabe %<cr>
+nmap <S-Down> :tabclose<cr>
 
 " Switch CWD to the directory of the current buffer
 nmap <leader>cd :lcd %:p:h<cr>:pwd<cr>
