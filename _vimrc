@@ -26,7 +26,8 @@ set autoindent
 set smartindent
 set wrap
 set laststatus=2
-set statusline=\ %{HasPaste()}%f%m%r%h%w\ [%{&fenc?&fenc:&enc}]\ %=\CWD=%{getcwd()}\ %l/%L\ %p%%\ 
+"set statusline=\ %{HasPaste()}%f%m%r%h%w\ %y(%{&fenc?&fenc:&enc})\ %=\CWD=%{getcwd()}\ %l/%L\ %p%%\ 
+set statusline=\ %<%F%m%r%h%w\ %y\ %=\ %l/%L\ %p%%\ 
 set cursorcolumn
 set cursorline
 set hidden
