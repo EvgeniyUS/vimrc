@@ -43,7 +43,7 @@ let g:netrw_altv=1
 let g:netrw_winsize=15
 let g:netrw_list_hide='.*\.pyc'
 autocmd BufRead *.py set omnifunc=pythoncomplete#Complete
-autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType * set tabstop=4|set shiftwidth=4|set expandtab
 "autocmd CompleteDone * pclose
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
