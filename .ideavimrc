@@ -1,0 +1,31 @@
+""""""""MAIN""""""""
+
+set autoread
+set so=8
+set hlsearch
+set incsearch
+set showmatch
+
+" No sound or blinking
+set noerrorbells visualbell t_vb=
+autocmd GUIenter * set visualbell t_vb=
+
+
+"""""""MAPPING"""""""
+
+noremap j gj
+noremap k gk
+
+" Substitute current word/selection
+nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
+vmap <F3> y:%s/<C-R>"//g<Left><Left>
+
+" Windows
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+
+" Tabs
+nmap <S-Right> gt
+nmap <S-Left> gT
