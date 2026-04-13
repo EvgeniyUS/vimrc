@@ -60,12 +60,14 @@ colorscheme habamax
 let mapleader = "\<space>"
 noremap j gj
 noremap k gk
-"nmap <silent> <F4> :Vex<cr>
 nmap <silent> <F4> :Lexplore<cr>
 nmap <leader><bs> :close<cr>
 nmap <leader>n :set nu!<cr>
 nmap <leader>r :reg<cr>
 vmap <leader>/ "zy/<c-r>z<cr>
+
+" Switch CWD to the directory of the current buffer
+map <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
 " Substitute current word/selection
 nmap <F3> viwy:%s/\<<C-R>"\>//g<Left><Left>
